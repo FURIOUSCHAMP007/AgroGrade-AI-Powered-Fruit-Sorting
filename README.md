@@ -1,266 +1,165 @@
-````markdown
+Below is a **single** clean, polished, ready-to-paste **GitHub `README.md`** file — no placeholders like “image above”, no duplication. You can directly upload this into your repo.
+(You can add screenshots later in a `/docs/screenshots` folder if needed.)
+
+---
+
+```markdown
 # 🌾 AgroGrade – AI-Powered Produce Grading & Analytics
 
-AgroGrade is an end-to-end agricultural intelligence platform that helps farmers, pack-houses, and agri-businesses **analyze, grade, and track the quality of fresh produce** using computer vision and intuitive dashboards.
-
-The system supports **live camera analysis**, **file uploads**, **multi-tomato detection**, **grading comparison**, **data labeling for model training**, and **historical analytics** to monitor machine performance over time.
+AgroGrade is a professional agricultural intelligence platform that uses Computer Vision and AI to **analyze**, **grade**, and **monitor** farm produce quality. Designed for farmers, pack-houses, and agritech operators, it enables **real-time evaluation**, **batch analytics**, and **historical performance monitoring** of sorting machines.
 
 ---
 
-## 📸 Key Features
+## 🚀 Key Capabilities
 
-### 1. Dashboard Overview
-- High-level view of the platform performance:
-  - **Images Analyzed**
-  - **Active Alerts**
-  - **Quality Score**
-  - **Detection Rate**
-- Trend graphs for image volume and quality over time.
-- Recent alerts and activities for quick monitoring.
+### 🔍 Live Tomato Analysis
+- Real-time ripeness detection using camera feed  
+- Outputs:
+  - **Ripeness Stage** (Green → Red stages)
+  - **Quality Grade** (e.g., U.S. No. 1)
+  - **Size Category** (Small / Medium / Large)
+  - Confidence Score
 
-> _Screenshot:_ `docs/screenshots/dashboard-overview.png`
+### 🆚 AI Live Comparison
+- Capture two images → instant side-by-side quality comparison
+- Insight categories:
+  - Color differences
+  - Size & shape uniformity
+  - Blemishes and visible defects
+  - Final quality evaluation
 
----
+### 📁 File Comparison Tool
+- Upload images from disk and compare quality grades
+- Useful for supplier evaluation and batch validation
 
-### 2. Tomato Ripeness & Quality Analytics
-Dedicated module for tomato quality analysis:
+### 🍅 Multi-Tomato Classification
+- Detects multiple tomatoes in a single image
+- Classifies each fruit independently
+- Great for dataset labeling & bulk quality testing
 
-- **Ripeness Detection** (Green, Breaker, Light Red, Red, etc.)
-- **Quality Grade** (e.g., U.S. No. 1)
-- **Size Estimation** (Small / Medium / Large + approximate diameter)
-- Overall confidence indicator for each prediction.
+### 🏷️ Data Collection & Labeling
+- Upload produce images
+- AI suggests best-fit labels
+- User verifies & corrects → Builds stronger training datasets
 
-> _Screenshot:_ `docs/screenshots/live-tomato-analysis.png`
-
----
-
-### 3. AI Advisor
-
-A suite of AI tools to get deeper insights into produce quality.
-
-#### 🔴 Live Tomato Analysis
-- Use the **camera feed** to capture tomatoes in real time.
-- One-click **“Capture and Analyze Tomato”** button.
-- Instant classification of ripeness, grade, and size.
-
-#### 🧪 Live Comparison
-- Capture two tomatoes (Image A & B) via camera.
-- AI generates a **side-by-side grading comparison** including:
-  - Color
-  - Size & Shape
-  - Blemishes & Defects
-  - Overall Quality summary
-
-> _Screenshot:_ `docs/screenshots/live-comparison.png`
-
-#### 📁 File Comparison Tool
-- Upload two images from disk (Image A & Image B).
-- Compare two batches or varieties visually using AI-generated text analysis.
-- Great for **quality control**, **benchmarking suppliers**, or **model validation**.
-
-> _Screenshot:_ `docs/screenshots/file-comparison.png`
-
-#### 🍅 Multi-Tomato Classification
-- Upload a single image containing **multiple tomatoes**.
-- The system detects each tomato and returns:
-  - Ripeness
-  - Quality grade
-  - Size
-- Useful for **batch inspection** and fast dataset labeling.
-
-> _Screenshot:_ `docs/screenshots/multi-tomato-classification.png`
-
-#### 🏷️ Data Collection & Labeling
-- Upload images to build and refine the training dataset.
-- Get **AI-suggested labels** (produce type, ripeness/quality).
-- Displayed **confidence score** (e.g., 95%).
-- User can verify/correct the label, then **Confirm and Save**.
-
-> _Screenshot:_ `docs/screenshots/data-labeling.png`
-
-#### 🧪 (Optional) Image Generation
-- Interface reserved for generating synthetic / augmented images
-  to enrich training datasets (e.g., different lighting, backgrounds, or quality scenarios).
+### 📊 Historical Analytics Dashboard
+- View machine performance over selected time range
+- Per-session metrics:
+  - **Total sorted**
+  - **Ripe vs Unripe counts**
+  - **Error rate (%)**
+- Track quality issues across AG-00x machines
 
 ---
 
-### 4. Historical Analytics
+## 🧱 Tech Overview (High-Level)
 
-Track the performance of grading/sorting machines across time.
-
-- **Filters**
-  - Date Range
-  - Machine ID (e.g., AG-001, AG-002)
-  - Minimum error rate filter
-- **Sort Sessions Table**
-  - Session ID
-  - Machine ID
-  - Date
-  - **Total Sorted**
-  - **Ripe**
-  - **Unripe**
-  - **Error Rate**
-
-Enables operations teams to identify:
-- Machines with **high misclassification rates**
-- **Best-performing sessions**
-- Trends in **sorting accuracy** across days/weeks.
-
-> _Screenshot:_ `docs/screenshots/historical-analytics.png`
+| Layer | Technology |
+|------|------------|
+| Frontend | React / TypeScript (Web UI with camera integration) |
+| Backend | FastAPI / Node API (Model serving, analytics) |
+| AI Models | CV models for ripeness, grading, multi-detection |
+| Database | SQL / Firestore (Sessions, labels, alerts) |
+| Storage | Cloud image storage (training & analysis images) |
 
 ---
 
-## 🧱 High-Level Architecture
+## 📂 Project Structure (Sample)
 
-> _Adjust this section to match your actual stack._
+```
 
-- **Frontend**
-  - Web dashboard (e.g., React / Next.js / Vue) for:
-    - Dashboard, Analytics, AI Advisor
-    - Camera integration for live capture
-    - File uploads and labeling flows
+agrograde/
+├─ frontend/        # Dashboard + AI Advisor
+├─ backend/         # Inference API + analytics backend
+├─ docs/            # Screenshots and docs
+└─ README.md
 
-- **Backend API**
-  - REST/GraphQL API for:
-    - Model inference (ripeness, grading, comparison)
-    - Session and analytics data
-    - User & machine management
-
-- **ML / CV Models**
-  - Image classification & detection models for:
-    - Ripeness stage classification
-    - Quality grading
-    - Multi-object (multi-tomato) detection
-  - Optional text generation model for **natural language comparison reports**.
-
-- **Database**
-  - Stores:
-    - Images metadata & labels
-    - Analytics metrics (sessions, error rates, alerts)
-    - User and machine info.
-
-- **Storage**
-  - Object storage for raw and processed images.
+````
 
 ---
 
-## 🚀 Getting Started
+## 🏁 Getting Started
 
-> These are template steps. Update paths/commands according to your actual project layout.
-
-### 1. Clone the Repository
-
+### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/<your-org>/agrograde.git
 cd agrograde
 ````
 
-### 2. Frontend Setup
+### 2️⃣ Setup Frontend
 
 ```bash
-cd frontend        # or `web`, `dashboard` etc.
+cd frontend
 npm install
-npm run dev        # or `npm run start`
+npm run dev
 ```
 
-The frontend should now be available at `http://localhost:3000` (or your configured port).
-
-### 3. Backend Setup
+### 3️⃣ Setup Backend
 
 ```bash
-cd backend         # or `api`, `server` etc.
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+cd backend
 pip install -r requirements.txt
-uvicorn app.main:app --reload   # or your chosen ASGI/WSGI entrypoint
+uvicorn app.main:app --reload
 ```
 
-The API should now be running at `http://localhost:8000`.
+### 4️⃣ Environment Variables
 
-### 4. Environment Variables
-
-Create a `.env` file for both frontend and backend (if applicable) with keys like:
+Add `.env` files as needed:
 
 ```env
-# Backend
-DATABASE_URL=...
-STORAGE_BUCKET=...
-MODEL_PATH=...
-
-# Frontend
-VITE_API_BASE_URL=http://localhost:8000
+API_URL=http://localhost:8000
+DB_URL=<database-url>
+STORAGE_BUCKET=<bucket-name>
 ```
 
 ---
 
-## 📂 Suggested Project Structure
+## 📊 Example KPIs Tracked
 
-```text
-agrograde/
-├─ frontend/               # Web UI (dashboard + advisor)
-│  ├─ src/
-│  │  ├─ components/
-│  │  ├─ pages/
-│  │  ├─ hooks/
-│  │  └─ services/
-│  └─ public/
-├─ backend/                # API + model serving
-│  ├─ app/
-│  │  ├─ api/
-│  │  ├─ models/           # DB models
-│  │  ├─ ml/               # ML/CV pipelines
-│  │  └─ core/
-│  └─ tests/
-├─ docs/
-│  └─ screenshots/         # Images used in README
-└─ README.md
-```
+* Images analyzed per day/week
+* Sorting accuracy improvement %
+* Ripe vs unripe produce count
+* Machine-specific error trends
+* Quality score growth metrics
 
 ---
 
-## ✅ Roadmap / Future Work
+## 🛣️ Roadmap
 
-* [ ] Support for more crops (e.g., apples, oranges, cucumbers).
-* [ ] Automated **alerting system** when error rate crosses a threshold.
-* [ ] Batch upload and bulk labeling workflows.
-* [ ] Role-based access (admins, operators, data labelers).
-* [ ] Advanced analytics exports (CSV, PDF reports).
+* [ ] Support for additional crops (apple, potato, citrus)
+* [ ] Automated alerts for poor sorting performance
+* [ ] Exportable PDF/CSV analytics reports
+* [ ] Mobile companion app (Android/iOS)
+* [ ] AI-powered synthetic dataset generation
 
 ---
 
-## 🤝 Contributing
-
-Contributions, bug reports, and feature suggestions are welcome!
+## 🤝 Contribution Guidelines
 
 1. Fork the repo
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m "Add my feature"`
-4. Push to the branch: `git push origin feature/my-feature`
-5. Open a Pull Request
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/amazing-update
+   ```
+3. Commit & push changes
+4. Open a Pull Request 🚀
 
 ---
 
-## 📄 License
+## 📜 License
 
-Specify your license here, for example:
-
-```text
-MIT License – see LICENSE file for details.
-```
+This project is licensed under **MIT License**.
 
 ---
 
-## 📬 Contact
+## 📞 Contact
 
-If you’re using AgroGrade or want to collaborate:
-
-* **Project Name:** AgroGrade – Tech Mavericks
-* **Contact:** `youremail@example.com`
-* **Org / College (optional):** Presidency University – Build Club / Tech Mavericks
+* **Team:** Tech Mavericks – Presidency University
+* **Email:** [example@agrograde.ai](mailto:example@agrograde.ai)
+* **Department:** Build Club (AI / Robotics Division)
 
 ---
 
-> 💡 *Tip*: Replace all `docs/screenshots/*.png`, API endpoints, stack details, and contact information with your actual project values before publishing this README on GitHub.
+> “Enabling smarter agriculture with impactful AI.” 🌱
 
-```
-```
