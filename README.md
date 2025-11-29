@@ -1,18 +1,12 @@
-Below is a **single** clean, polished, ready-to-paste **GitHub `README.md`** file — no placeholders like “image above”, no duplication. You can directly upload this into your repo.
-(You can add screenshots later in a `/docs/screenshots` folder if needed.)
 
----
-
-```markdown
-# 🌾 AgroGrade – AI-Powered Produce Grading & Analytics
+🌾 AgroGrade – AI-Powered Produce Grading & Analytics
 
 AgroGrade is a professional agricultural intelligence platform that uses Computer Vision and AI to **analyze**, **grade**, and **monitor** farm produce quality. Designed for farmers, pack-houses, and agritech operators, it enables **real-time evaluation**, **batch analytics**, and **historical performance monitoring** of sorting machines.
 
----
 
-## 🚀 Key Capabilities
+🚀 Key Capabilities
 
-### 🔍 Live Tomato Analysis
+ 🔍 Live Tomato Analysis
 - Real-time ripeness detection using camera feed  
 - Outputs:
   - **Ripeness Stage** (Green → Red stages)
@@ -20,7 +14,7 @@ AgroGrade is a professional agricultural intelligence platform that uses Compute
   - **Size Category** (Small / Medium / Large)
   - Confidence Score
 
-### 🆚 AI Live Comparison
+🆚 AI Live Comparison
 - Capture two images → instant side-by-side quality comparison
 - Insight categories:
   - Color differences
@@ -28,21 +22,21 @@ AgroGrade is a professional agricultural intelligence platform that uses Compute
   - Blemishes and visible defects
   - Final quality evaluation
 
-### 📁 File Comparison Tool
+ 📁 File Comparison Tool
 - Upload images from disk and compare quality grades
 - Useful for supplier evaluation and batch validation
 
-### 🍅 Multi-Tomato Classification
+🍅 Multi-Tomato Classification
 - Detects multiple tomatoes in a single image
 - Classifies each fruit independently
 - Great for dataset labeling & bulk quality testing
 
-### 🏷️ Data Collection & Labeling
+🏷️ Data Collection & Labeling
 - Upload produce images
 - AI suggests best-fit labels
 - User verifies & corrects → Builds stronger training datasets
 
-### 📊 Historical Analytics Dashboard
+📊 Historical Analytics Dashboard
 - View machine performance over selected time range
 - Per-session metrics:
   - **Total sorted**
@@ -50,9 +44,9 @@ AgroGrade is a professional agricultural intelligence platform that uses Compute
   - **Error rate (%)**
 - Track quality issues across AG-00x machines
 
----
 
-## 🧱 Tech Overview (High-Level)
+
+🧱 Tech Overview (High-Level)
 
 | Layer | Technology |
 |------|------------|
